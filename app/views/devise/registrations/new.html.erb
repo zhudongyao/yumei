@@ -12,13 +12,15 @@
         </div>
 
         <div class="log_info">
-          <span>确认密码：<%= f.password_field :password_confirmation, autocomplete: "off" %></span>
+          <span><span>确认密码<span>：<%= f.password_field :password_confirmation, autocomplete: "off" %></span>
         </div>
 
         <div class="log_but">
           <%= f.submit "注册" %>
-          <div class="red"><%= alert %></div>
-          <%= devise_error_messages! %>
+          <div class="red">
+            <%= alert %>
+            <%= devise_error_messages! %>
+          </div>
         </div>
       </div>
     <% end %>
