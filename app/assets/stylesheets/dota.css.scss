@@ -54,6 +54,7 @@ a:hover {
 	background-color:#ffffff;
 }
 
+//注册登录页面
 
 .log_whole {
   position: absolute;
@@ -111,3 +112,60 @@ a:hover {
   line-height: 20px;
 }
 
+
+// 后台首页导航栏
+
+.menu-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 100%;
+	color: #fff;
+	background: #05847d;
+}
+.menu-wrap span {
+	color: #fff;
+}
+.menu-wrap a {
+	display: block;
+	padding: 12px 20px;
+}
+.menu-wrap a span {
+	-webkit-transition: opacity 0.3s ease-in-out 0.3s;
+	-o-transition: opacity 0.3s ease-in-out 0.3s;
+	-moz-transition: opacity 0.3s ease-in-out 0.3s;
+	-ms-transition: opacity 0.3s ease-in-out 0.3s;
+	transition: opacity 0.3s ease-in-out 0.3s;
+	opacity: 0.7;
+}
+.menu-wrap .ph {
+	-webkit-transition: opacity 0.3s;
+	-o-transition: opacity 0.3s;
+	-moz-transition: opacity 0.3s;
+	-ms-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	opacity: 0.7;
+}
+
+.menu-wrap .list-header {
+	padding: 10px 15px;
+	line-height: 18px;
+	color: #848C93;
+}
+.menu-wrap a:hover .ph, .menu-wrap a:hover span, .menu-wrap a:hover .down-list {
+	opacity: 1;
+}
+.op-list a:hover {
+	opacity: 1;
+	padding-left: 3px;
+}
+.active .op-list {
+	height: 200px;
+}
+.menu-wrap .active-link, .menu-wrap .active-link span, .menu-wrap .active-link i {
+	opacity: 1;
+}
+.content-container {
+	padding: 24.5px 30px 30px 235px;
+}

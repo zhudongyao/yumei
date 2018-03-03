@@ -14,5 +14,6 @@
  *= require_self
  *= require bootstrap
  *= require common
+ *= require layui
  *= require dota
  */

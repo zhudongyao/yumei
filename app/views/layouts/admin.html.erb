@@ -1,89 +1,27 @@
-<ul>
-  <li class="active-link">
-    <a href="">
-      <i class="ph hp-lg"></i>
-      <span>首页</span>
-    </a>
-  </li>
-  <li class="active-link">
-    <a href="">
-      <i class="ph mana-lg"></i>
-      <span>学员管理</span>
-    </a>
-  </li>
-  <li>
-    <a href="">
-      <i class="ph tc-lg"></i>
-      <span>导师管理</span>
-    </a>
-  <li/>
-  <li>
-    <a href="javascript:;">
-      <i class="ph cur-lg"></i>
-      <span>课程管理</span>
-      <i class="down-list"></i>
-    </a>
-    <ul class="op-list">
-      <li>
-        <a href="">课程周表</a>
-      </li>
-      <li>
-        <a href="">课程列表</a>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <a href="javascript:;">
-      <i class="ph com-lg"></i>
-      <span>商品售卖</span>
-      <i class="down-list"></i>
-    </a>
-    <ul class="op-list">
-      <li>
-        <a href="">商品店铺</a>
-      </li>
-      <li>
-        <a href="">商品列表</a>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <a href="">
-      <i class="ph rec-lg"></i>
-      <span>招生管理</span>
-    </a>
-  </li>
-  <li>
-    <a href="javascript:;">
-      <i class="ph ser-lg"></i>
-      <span>服务管理</span>
-    </a>
-  </li>
-  <li>
-    <a href="javascript:;">
-      <i class="ph dt-lg"></i>
-      <span>数据统计</span>
-      <i class="down-list"></i>
-    </a>
-    <ul class="op-list">
-      <li>
-        <a href="#">今日数据</a>
-      </li>
-      <li>
-        <a href="#">学员数据</a>
-      </li>
-      <li>
-        <a href="#">导师数据</a>
-      </li>
-      <li>
-        <a href="#">课程数据</a>
-      </li>
-      <li>
-        <a href="#">商品数据</a>
-      </li>
-      <li>
-        <a href="#">招生数据</a>
-      </li>
-    </ul>
-  </li>
-</ul>
+<html>
+  <head>
+    <title>育美幼儿园</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="boxed">
+      <div class="menu-wrap">
+        <%= render 'layouts/menu_wrap' %>
+      </div>
+      <!-- 内容区域 -->
+      <div class="content-container">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
