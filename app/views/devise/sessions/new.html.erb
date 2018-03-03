@@ -1,29 +1,27 @@
-<div>
-<h2>登录</h2>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<table class="common table-bordered">
-  <tbody>
-  <tr>
-    <th class='bg'>手机号：</th>
-    <td ><%= f.text_field :mobile, autofocus: true, autocomplete: "email" %></td>
-  </tr>
-  <tr>
-    <th class='bg'>密码：</th>
-    <td><%= f.password_field :password, autocomplete: "off" %></td>
-  </tr>
 
-  <% if devise_mapping.rememberable? -%>
-    <tr>
-      <td><%= f.check_box :remember_me %>记住我</td>
-    </tr>
-  <% end -%>
+<div class="log_whole">
+  <div class="log_action">
+    <p class='tc b font22 mb30'>登录</p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="log_all">
+        <div class="log_info mb30">
+          <span>手机号：<%= f.text_field :mobile, autofocus: true, autocomplete: "email" %></span>
+        </div>
+        <div class="log_info">
+          <span><span class="ls20">密</span>码：<%= f.password_field :password, autocomplete: "off" %></span>
+        </div>
+        <div class="fl ml20">
+          <% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me %> 记住我
+          <% end -%>
+        </div>
+        <div class= "log_but">
+          <%= f.submit "登录" %>
+          <div class="red"><%= alert %></div>
+        </div>
+      </div>
+    <% end %>
 
-  <tr>
-    <td colspan="2"><%= f.submit "登录" %><td>
-  </tr>
-  </tbody>
-</table>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
