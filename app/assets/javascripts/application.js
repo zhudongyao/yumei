@@ -13,23 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap
-//= require common
-//= require layui_modules/carousel
-//= require layui_modules/code
-//= require layui_modules/element
-//= require layui_modules/flow
-//= require layui_modules/form
-//= require layui_modules/jquery
-//= require layui_modules/laydate
-//= require layui_modules/layer
-//= require layui_modules/laypage
-//= require layui_modules/laytpl
-//= require layui_modules/layui.all
-//= require layui_modules/layui
-//= require layui_modules/mobile
-//= require layui_modules/table
-//= require layui_modules/tree
-//= require layui_modules/upload
-//= require layui_modules/util
-//= require_tree .
+
+
+//= require layui.all
+//= require layui
