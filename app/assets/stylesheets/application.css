@@ -13,5 +13,7 @@
 
  *= require layui
  *= require layui.mobile
+ *= require common
+ *= require dota
 
  */

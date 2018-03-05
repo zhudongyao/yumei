@@ -4,8 +4,8 @@ class CreateAccounts < ActiveRecord::Migration[5.0]
       t.string   :name,                                   comment: "账户名"
       t.string   :card_number,                            comment: "账号"
       t.decimal  :initial_total, precision: 20, scale: 4, comment: "初始化金额"
-      t.integer  :status,                                 comment: "状态"
-      t.integer  :operator_id,                            comment: "账户创建人ID"
+      t.integer  :status,        default: 1,              comment: "状态"
+      t.integer  :user_id,                                comment: "账户创建人ID"
       t.timestamps
     end
   end
