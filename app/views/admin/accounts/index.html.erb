@@ -32,8 +32,10 @@
         <th><%=  %></th>
         <th><%=  %></th>
         <th><%= account.user.try(:user_name) || account.user.try(:mobile) %></th>
-        <th><%= Account::STATUS[account.status] %></th>
-        <th><%=  %></th>
+        <% status_class = account.status == 1 ? "" : "red" %>
+        <th class=<%= status_class %>><%= Account::STATUS[account.status] %></th>
+        <% status = account.status == 1 ? "禁用" : "启用" %>
+        <th><%= link_to "#{status}", change_status_admin_account_path(account, status: status), class: "layui-btn layui-btn-sm", method: :post, data: { confirm: "確定要#{status}吗? 请谨慎操作！" } %></th>
       </tr>
     <% end %>
   </tbody>

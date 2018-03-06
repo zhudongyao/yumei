@@ -1,0 +1,25 @@
+<div>
+  <span class="title">新增收支类型</span>
+</div>
+
+<%= form_for @finance_type, url: admin_finance_types_path, html: {class: 'layui-form valid_engine', method: :post}, :multipart => true  do |f| %>
+  <div class="layui-form-item">
+    <label class="layui-form-label">收支名称</label>
+    <div class="layui-input-block"><%= f.text_field :name, class: "layui-input w300 validate[required]" %></div>
+  </div>
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">收支类型</label>
+    <div class="layui-input-block">
+      <%= f.select :kind, options_for_select([["收入", "收入"],["支出", "支出"]]), include_blank: '请选择', html: { class: "form-control validate[required]"} %>
+    </div>
+  </div>
+
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <%= f.submit  "立即提交", class: "layui-btn" %>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+<% end %>

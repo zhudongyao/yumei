@@ -8,7 +8,21 @@ Rails.application.routes.draw do
   namespace :admin do
     root "home#index"
 
-    resources :accounts
+    # 账户管理
+    resources :accounts do
+      member do
+        post :change_status
+      end
+    end
+
+    # 收支类型管理
+    resources :finance_types do
+      member do
+        post :change_status
+      end
+    end
+
+
 
   end
 

@@ -1,22 +1,30 @@
 <ul class="layui-nav layui-nav-tree layui-nav-side" lay-filter="test">
 <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
   <li class="layui-nav-item layui-nav-itemed">
-    <a href="javascript:;">默认展开</a>
+    <a href="javascript:;">财务管理</a>
     <dl class="layui-nav-child">
-      <dd><a href="javascript:;">选项1</a></dd>
-      <dd><a href="javascript:;">选项2</a></dd>
-      <dd><a href="">跳转</a></dd>
+      <dd><a href="/admin/accounts">账户管理</a></dd>
+      <dd><a href="/admin/finance_types">收支类型管理</a></dd>
+      <dd><a href="/admin/">账目管理</a></dd>
+      <dd><a href="http://www.baidu.com">跳转</a></dd>
+    </dl>
+  </li>
+  <li class="layui-nav-item layui-nav-itemed">
+    <a href="javascript:;">教务管理</a>
+    <dl class="layui-nav-child">
+      <dd><a href="/admin/">员工管理</a></dd>
+      <dd><a href="/admin/">学生管理</a></dd>
     </dl>
   </li>
   <li class="layui-nav-item">
-    <a href="javascript:;">解决方案</a>
+    <a href="javascript:;">财务管理</a>
     <dl class="layui-nav-child">
-      <dd><a href="">移动模块</a></dd>
-      <dd><a href="">后台模版</a></dd>
-      <dd><a href="">电商平台</a></dd>
+      <dd><a href="/admin/accounts">账户管理</a></dd>
+      <dd><a href="">收支类型管理</a></dd>
+      <dd><a href="">账目管理</a></dd>
     </dl>
   </li>
-  <li class="layui-nav-item"><a href="/admin/accounts">账户管理</a></li>
+  <li class="layui-nav-item"><a href="/admin/accounts">test</a></li>
   <li class="layui-nav-item mt100"><%= link_to "退出登录", destroy_user_session_path, method: :delete %></li>
 </ul>
 
