@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     # 员工管理
     resources :employees do
       member do
+        get :show_leave
+        post :leave
       end
     end
 

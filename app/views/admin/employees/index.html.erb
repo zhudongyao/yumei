@@ -31,8 +31,11 @@
         <% status_class = employee.status == 1 ? "" : "red" %>
         <th class=<%= status_class %>><%= Employee::STATUS[employee.status] %></th>
         <th><%= employee.user.try(:user_name) || employee.user.try(:mobile) %></th>
-        <% status = employee.status == 1 ? "禁用" : "启用" %>
-        <th><%# link_to "#{status}", change_status_admin_employee_path(employee, status: status), class: "layui-btn layui-btn-sm", method: :post, data: { confirm: "確定要#{status}吗? 请谨慎操作！" } %></th>
+        <th>
+          <% if employee.status == 1 %>
+            <%= link_to "离职", show_leave_admin_employee_path(employee), class: "layui-btn layui-btn-sm" %>
+          <% end %>
+        </th>
       </tr>
     <% end %>
   </tbody>

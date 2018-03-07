@@ -1,0 +1,45 @@
+<div>
+  <span class="title"><%= @employee.name %>离职</span>
+</div>
+
+<%= form_for @employee, url: leave_admin_employee_path, html: {class: 'layui-form valid_engine', method: :post}, :multipart => true  do |f| %>
+  <div class="layui-form-item">
+    <label class="layui-form-label">离职日期</label>
+    <div class="layui-input-block"><%= f.text_field :leave_at, class: "layui-input w300 validate[required]", id: "leave" %></div>
+  </div>
+
+  <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">离职原因</label>
+    <div class="layui-input-block"><%= f.text_area :leave_reason, class: "layui-input w300 validate[required]" %></div>
+  </div>
+  <%= f.hidden_field :status, value: 0 %>
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <%= f.submit  "立即提交", class: "layui-btn" %>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+<% end %>
+<script src="/assets/javascripts/layui.js"></script>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+
+  //执行一个laydate实例
+  laydate.render({
+    elem: '#leave' //指定元素
+  });
+});
+
+layui.use('form', function(){
+  var form = layui.form;
+
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+</script>
+

@@ -8,7 +8,7 @@ class CreateEmployees < ActiveRecord::Migration[5.0]
       t.datetime :born_at,                          comment: "出生日期"
       t.datetime :join_at,                          comment: "入职日期"
       t.datetime :leave_at,                         comment: "离职日期"
-      t.string   :leave_reason,                     comment: "离职原因"
+      t.text     :leave_reason,                     comment: "离职原因"
       t.integer  :status,          default: 1,      comment: "状态"
       t.string   :emergent_person,                  comment: "紧急联系人"
       t.string   :emergent_mobile,                  comment: "紧急联系人电话"
