@@ -30,6 +30,12 @@ Rails.application.routes.draw do
       end
     end
 
+    # 学生管理
+    resources :students do
+      member do
+      end
+    end
+
 
 
   end
