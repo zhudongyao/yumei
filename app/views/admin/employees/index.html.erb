@@ -1,0 +1,39 @@
+<div class="h50">
+<span class="title">员工管理</span>
+<span><%= link_to "添加", new_admin_employee_path, class: "layui-btn layui-btnn fr" %><span>
+</div>
+
+<table class="layui-table">
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>电话</th>
+      <th>岗位</th>
+      <th>入职时间</th>
+      <th>生日</th>
+      <th>薪资</th>
+      <th>紧急联系人</th>
+      <th>状态</th>
+      <th>创建人</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <th><%= employee.name %></th>
+        <th><%= employee.mobile %></th>
+        <th><%= employee.department %></th>
+        <th><%= employee.join_at.strftime('%Y年%m月%d日') %></th>
+        <th><%= employee.born_at.strftime('%Y年%m月%d日') %></th>
+        <th><%= employee.salary %></th>
+        <th><%= employee.emergent_person %>(<%= employee.emergent_mobile %>)</th>
+        <% status_class = employee.status == 1 ? "" : "red" %>
+        <th class=<%= status_class %>><%= Employee::STATUS[employee.status] %></th>
+        <th><%= employee.user.try(:user_name) || employee.user.try(:mobile) %></th>
+        <% status = employee.status == 1 ? "禁用" : "启用" %>
+        <th><%# link_to "#{status}", change_status_admin_employee_path(employee, status: status), class: "layui-btn layui-btn-sm", method: :post, data: { confirm: "確定要#{status}吗? 请谨慎操作！" } %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

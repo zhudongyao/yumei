@@ -14,7 +14,6 @@
       <th>收支名称</th>
       <th>收支类型</th>
       <th>总金额</th>
-      <th>状态</th>
       <th>创建人</th>
       <th>状态</th>
       <th>操作</th>
@@ -26,8 +25,7 @@
         <th><%= finance_type.name %></th>
         <th><%= finance_type.kind %></th>
         <th><%=  %>元</th>
-        <th><%= FinanceType::STATUS[finance_type.status] %></th>
-        <th><%= finance_type.user.try(:user_name) || finance_type.user.try(:mobile) %></th>
+        <th><%= finance_type.user.try(:user_name) || finance_type.user.try(:mobile) || '系统' %></th>
         <% status_class = finance_type.status == 1 ? "" : "red" %>
         <th class=<%= status_class %>><%= Account::STATUS[finance_type.status] %></th>
         <% status = finance_type.status == 1 ? "禁用" : "启用" %>

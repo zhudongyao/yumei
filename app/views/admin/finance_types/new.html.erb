@@ -10,8 +10,8 @@
 
   <div class="layui-form-item">
     <label class="layui-form-label">收支类型</label>
-    <div class="layui-input-block">
-      <%= f.select :kind, options_for_select([["收入", "收入"],["支出", "支出"]]), include_blank: '请选择', html: { class: "form-control validate[required]"} %>
+    <div class="layui-input-block form_select">
+      <%= f.select :kind, [["收入", "收入"],["支出", "支出"]], {include_blank: '请选择'}, { class: "form_select validate[required]"} %>
     </div>
   </div>
 

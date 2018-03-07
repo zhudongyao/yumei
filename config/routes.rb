@@ -22,6 +22,12 @@ Rails.application.routes.draw do
       end
     end
 
+    # 员工管理
+    resources :employees do
+      member do
+      end
+    end
+
 
 
   end
