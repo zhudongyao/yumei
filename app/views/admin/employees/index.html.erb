@@ -24,19 +24,40 @@
         <th><%= employee.name %></th>
         <th><%= employee.mobile %></th>
         <th><%= employee.department %></th>
-        <th><%= employee.join_at.strftime('%Y年%m月%d日') %></th>
-        <th><%= employee.born_at.strftime('%Y年%m月%d日') %></th>
+        <th><%= employee.join_at %></th>
+        <th><%= employee.born_at %></th>
         <th><%= employee.salary %></th>
         <th><%= employee.emergent_person %>(<%= employee.emergent_mobile %>)</th>
         <% status_class = employee.status == 1 ? "" : "red" %>
         <th class=<%= status_class %>><%= Employee::STATUS[employee.status] %></th>
         <th><%= employee.user.try(:user_name) || employee.user.try(:mobile) %></th>
         <th>
-          <% if employee.status == 1 %>
-            <%= link_to "离职", show_leave_admin_employee_path(employee), class: "layui-btn layui-btn-sm" %>
-          <% end %>
+          <ul class="layui-nav layui-bg-green cz-select-ul" lay-filter="">
+            <li class="layui-nav-item">
+              <a class="lh30" href="javascript:;">操作</a>
+              <dl class="layui-nav-child">
+                <dd><%= link_to "修改", edit_admin_employee_path(employee) %></dd>
+                <dd><%= link_to "查看", admin_employee_path(employee) %></dd>
+                <% if employee.status == 1 %>
+                  <dd><%= link_to "离职", show_leave_admin_employee_path(employee) %></dd>
+                <% end %>
+              </dl>
+            </li>
+          </ul>
         </th>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
+
+
+<script>
+//注意：导航 依赖 element 模块，否则无法进行功能性操作
+layui.use('element', function(){
+  var element = layui.element;
+
+  //…
+});
+</script>

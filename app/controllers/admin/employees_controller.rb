@@ -1,5 +1,5 @@
 class Admin::EmployeesController < AdminController
-  before_action :find_employee, only: [:show_leave, :leave]
+  before_action :find_employee, only: [:edit, :update, :show_leave, :leave]
   def index
     @employees = Employee.all.order("status desc")
   end
@@ -15,11 +15,18 @@ class Admin::EmployeesController < AdminController
     redirect_to action: :index
   end
 
+  def edit
+  end
+
+  def update
+    @employee.update_attributes(employee_params) ? flash_msg(:success) : flash_msg(:error)
+    redirect_to action: :index
+  end
+
   def show_leave
   end
 
   def leave
-    binding.pry
     @employee.update_attributes(leave_params) ? flash_msg(:success) : flash_msg(:error) if @employee.status == 1
     redirect_to action: :index
   end
