@@ -4,15 +4,15 @@
 
 <%= form_for @account, url: admin_accounts_path, html: {class: 'layui-form valid_engine', method: :post}, :multipart => true  do |f| %>
   <div class="layui-form-item">
-    <label class="layui-form-label">账户名</label>
+    <label class="layui-form-label"><%= require_span %>账户名</label>
     <div class="layui-input-block"><%= f.text_field :name, class: "layui-input w300 validate[required]" %></div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">账户号</label>
+    <label class="layui-form-label"><%= require_span %>账户号</label>
     <div class="layui-input-block"><%= f.text_field :card_number, class: "layui-input w300 validate[required]" %></div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">初始金额</label>
+    <label class="layui-form-label"><%= require_span %>初始金额</label>
     <div class="layui-input-block"><%= f.text_field :initial_total, class: "layui-input w300 validate[required,custom[number]]" %></div>
   </div>
 

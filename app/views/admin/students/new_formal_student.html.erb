@@ -1,0 +1,78 @@
+<div>
+  <span class="title">新增正式学员</span>
+</div>
+
+<%= form_for @student, url: create_formal_student_admin_students_path, html: {class: 'layui-form valid_engine'}, :multipart => true  do |f| %>
+<hr class="layui-bg-green mb10">
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>学生姓名</label>
+    <div class="layui-input-block"><%= f.text_field :name, class: "layui-input w300 validate[required]" %></div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>出生日期</label>
+    <div class="layui-input-block"><%= f.text_field :born_at, class: "layui-input w300 validate[required]", id: "join" %></div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>家长姓名</label>
+    <div class="layui-input-block"><%= f.text_field :parent_name, class: "layui-input w300 validate[required]" %></div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>联系方式</label>
+    <div class="layui-input-block"><%= f.text_field :mobile, class: "layui-input w300 validate[required]" %></div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>家庭地址</label>
+    <div class="layui-input-block"><%= f.text_field :address, class: "layui-input w300 validate[required]" %></div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">学生备注</label>
+    <div class="layui-input-block"><%= f.text_field :remark, class: "layui-input w300" %></div>
+  </div>
+<hr class="layui-bg-green mb10">
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>缴费金额</label>
+    <div class="layui-input-block"><%= text_field_tag :total, '', class: "layui-input w300 validate[required,custom[number]]" %></div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>缴费时间</label>
+    <div class="layui-input-block"><%= text_field_tag :happened_at, Date.current, class: "layui-input w300 validate[required]", id: "join" %></div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>收款账户</label>
+    <div class="layui-input-block form_select">
+      <%= select_tag :account_id, options_for_select(Account.usable.all.map{|a| [a.name, a.id]}), include_blank: '请选择', class: "form_select validate[required]" %>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>收款员工</label>
+    <div class="layui-input-block form_select">
+      <%= select_tag :employee_id, options_for_select(Employee.usable.all.map{|a| [a.name, a.id]}), include_blank: '请选择', class: "form_select validate[required]" %>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">缴费备注</label>
+    <div class="layui-input-block"><%= text_field_tag :remark, '', class: "layui-input w300" %></div>
+  </div>
+
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <%= f.submit  "立即提交", class: "layui-btn" %>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+<% end %>
+
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+
+  //执行一个laydate实例
+  laydate.render({
+    elem: '#born' //指定元素
+  });
+  laydate.render({
+    elem: '#join' //指定元素
+  });
+});
+</script>

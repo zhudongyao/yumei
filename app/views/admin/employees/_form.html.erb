@@ -1,38 +1,36 @@
 <%= form_for @employee, url: url, html: {class: 'layui-form valid_engine'}, :multipart => true  do |f| %>
   <div class="layui-form-item">
-    <label class="layui-form-label">姓名</label>
+    <label class="layui-form-label"><%= require_span %>姓名</label>
     <div class="layui-input-block"><%= f.text_field :name, class: "layui-input w300 validate[required]" %></div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">电话</label>
+    <label class="layui-form-label"><%= require_span %>电话</label>
     <div class="layui-input-block"><%= f.text_field :mobile, class: "layui-input w300 validate[required]" %></div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">岗位</label>
+    <label class="layui-form-label"><%= require_span %>岗位</label>
     <div class="layui-input-block"><%= f.text_field :department, class: "layui-input w300 validate[required]" %></div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">紧急联系人</label>
+    <label class="layui-form-label"><%= require_span %>紧急联系人</label>
     <div class="layui-input-block"><%= f.text_field :emergent_person, class: "layui-input w300 validate[required]" %></div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">紧急联系电话</label>
+    <label class="layui-form-label"><%= require_span %>紧急联系电话</label>
     <div class="layui-input-block"><%= f.text_field :emergent_mobile, class: "layui-input w300 validate[required]" %></div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">薪资</label>
+    <label class="layui-form-label"><%= require_span %>薪资</label>
     <div class="layui-input-block"><%= f.text_field :salary, class: "layui-input w300 validate[required]" %></div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">出生日期</label>
+    <label class="layui-form-label"><%= require_span %>出生日期</label>
     <div class="layui-input-block"><%= f.text_field :born_at, class: "layui-input w300 validate[required]", id: "born" %></div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">入职日期</label>
+    <label class="layui-form-label"><%= require_span %>入职日期</label>
     <div class="layui-input-block"><%= f.text_field :join_at, class: "layui-input w300 validate[required]", id: "join" %></div>
   </div>
-  <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe6c6;</i>
-
 
   <div class="layui-form-item">
     <div class="layui-input-block">

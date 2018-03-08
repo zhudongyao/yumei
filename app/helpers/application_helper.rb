@@ -1,4 +1,9 @@
 module ApplicationHelper
+  # 必填项，红星
+  def require_span
+    "<span class='red'>* </span>".html_safe
+  end
+
   # 按钮下拉方式展示
   def operate_buttons(object, options = {}, &block)
     return "" if object.blank?

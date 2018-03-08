@@ -22,14 +22,14 @@
   <tbody>
     <% @finance_types.each do |finance_type| %>
       <tr>
-        <th><%= finance_type.name %></th>
-        <th><%= finance_type.kind %></th>
-        <th><%=  %>元</th>
-        <th><%= finance_type.user.try(:user_name) || finance_type.user.try(:mobile) || '系统' %></th>
+        <td><%= finance_type.name %></td>
+        <td><%= finance_type.kind %></td>
+        <td><%=  %>元</td>
+        <td><%= finance_type.user.try(:user_name) || finance_type.user.try(:mobile) || '系统' %></td>
         <% status_class = finance_type.status == 1 ? "" : "red" %>
-        <th class=<%= status_class %>><%= Account::STATUS[finance_type.status] %></th>
+        <td class=<%= status_class %>><%= Account::STATUS[finance_type.status] %></td>
         <% status = finance_type.status == 1 ? "禁用" : "启用" %>
-        <th><%= link_to "#{status}", change_status_admin_finance_type_path(finance_type, status: status), class: "layui-btn layui-btn-sm", method: :post, data: { confirm: "確定要#{status}吗? 请谨慎操作！" } %></th>
+        <td><%= link_to "#{status}", change_status_admin_finance_type_path(finance_type, status: status), class: "layui-btn layui-btn-sm", method: :post, data: { confirm: "確定要#{status}吗? 请谨慎操作！" } %></td>
       </tr>
     <% end %>
   </tbody>

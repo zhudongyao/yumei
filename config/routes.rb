@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-
   root "admin/home#index"
 
   namespace :admin do
@@ -32,7 +31,9 @@ Rails.application.routes.draw do
 
     # 学生管理
     resources :students do
-      member do
+      collection do
+        get :new_formal_student
+        post :create_formal_student
       end
     end
 

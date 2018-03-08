@@ -4,12 +4,12 @@
 
 <%= form_for @finance_type, url: admin_finance_types_path, html: {class: 'layui-form valid_engine', method: :post}, :multipart => true  do |f| %>
   <div class="layui-form-item">
-    <label class="layui-form-label">收支名称</label>
+    <label class="layui-form-label"><%= require_span %>收支名称</label>
     <div class="layui-input-block"><%= f.text_field :name, class: "layui-input w300 validate[required]" %></div>
   </div>
 
   <div class="layui-form-item">
-    <label class="layui-form-label">收支类型</label>
+    <label class="layui-form-label"><%= require_span %>收支类型</label>
     <div class="layui-input-block form_select">
       <%= f.select :kind, [["收入", "收入"],["支出", "支出"]], {include_blank: '请选择'}, { class: "form_select validate[required]"} %>
     </div>
