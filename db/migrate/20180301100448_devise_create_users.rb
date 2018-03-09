@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string  :encrypted_password,   null: false, default: ""
       t.string  :user_name,                                      comment: "用户名"
       t.string  :email,                                          comment: "邮箱"
-      t.integer :status,                                         comment: "状态"
+      t.integer :status,               default: 1,               comment: "状态"
 
       ## Recoverable
       t.string   :reset_password_token

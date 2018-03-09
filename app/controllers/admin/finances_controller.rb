@@ -1,7 +1,14 @@
 class Admin::FinancesController < AdminController
   before_action :find_finance, only: []
   def index
-    @finances = Finance.all.order("status desc, happened_at desc")
+    @query = Finance.order("status desc, happened_at desc").ransack(params[:q])
+    results = @query.result
+    if params[:date_range].present?
+      date_begin = params[:date_range].split(' - ')[0]
+      date_end = params[:date_range].split(' - ')[1]
+      results = @query.result
+    end
+    @finances = results.page(params[:page]).per(10)
   end
 
   def new_income

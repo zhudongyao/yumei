@@ -27,10 +27,10 @@
       <tr>
         <td><%= account.name %></td>
         <td><%= account.card_number %></td>
-        <td><%= account.initial_total %>元</td>
-        <td><%=  %></td>
-        <td><%=  %></td>
-        <td><%=  %></td>
+        <td><%= number_to_currency account.initial_total %></td>
+        <td><%= number_to_currency account.income_total %></td>
+        <td><span class="red font20"><%= '-' if account.expense_total > 0 %></span><%= number_to_currency account.expense_total %></td>
+        <td><%= number_to_currency account.remain_money %></td>
         <td><%= account.user.try(:user_name) || account.user.try(:mobile) %></td>
         <% status_class = account.status == 1 ? "" : "red" %>
         <td class=<%= status_class %>><%= Account::STATUS[account.status] %></td>

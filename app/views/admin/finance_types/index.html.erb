@@ -24,7 +24,7 @@
       <tr>
         <td><%= finance_type.name %></td>
         <td><%= finance_type.kind %></td>
-        <td><%=  %>元</td>
+        <td><span class="red font20"><%= '-' if finance_type.kind == "支出" %></span><%= number_to_currency finance_type.my_total %></td>
         <td><%= finance_type.user.try(:user_name) || finance_type.user.try(:mobile) || '系统' %></td>
         <% status_class = finance_type.status == 1 ? "" : "red" %>
         <td class=<%= status_class %>><%= Account::STATUS[finance_type.status] %></td>

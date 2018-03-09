@@ -1,0 +1,25 @@
+<div class="mt20 mb30">
+<%= form_for @query, :url => admin_finances_path, :html => {:method => :get, :class => "well form-search"}  do |f| %>
+  <span class="mr20">收支类型：
+    <%= f.select :finance_type_kind_eq, [["收入", "收入"],['支出', "支出"]], {include_blank: '不限'}, {class: 'search_select'} %>
+  </span>
+  <span class="mr20">收支名称：
+    <%= f.select :finance_type_id_eq, FinanceType.usable.map{|x| [x.name, x.id] }, {include_blank: '不限'}, {class: 'search_select'} %>
+  </span>
+  <span class="mr20">收支账户：
+    <%= f.select :account_id_eq, Account.usable.map{|x| [x.name, x.id] }, {include_blank: '不限'}, {class: 'search_select'} %>
+  </span>
+  <span class="mr20">创建人：
+    <%= f.select :user_id_eq, User.usable.map{|x| [x.mobile, x.id] }, {include_blank: '不限'}, {class: 'search_select'} %>
+  </span>
+  <span class="mr20">日期范围：
+    <%= text_field_tag :date_range, '', class: "search_date layui-input", id: "range" %>
+  </span>
+  <div class="tc mt20">
+    <%= f.submit  "查 询", class: "layui-btn layui-btn-sm" %>
+    <%= link_to "全 部", admin_finances_path, class: "layui-btn layui-btn-sm" %>
+    <span>总共：<%= @query.result.count %>条</span>
+  </div>
+  <%# render "ancient/shared/search_bottom", :f => f %>
+<% end %>
+</div>

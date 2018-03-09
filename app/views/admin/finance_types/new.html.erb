@@ -11,10 +11,9 @@
   <div class="layui-form-item">
     <label class="layui-form-label"><%= require_span %>收支类型</label>
     <div class="layui-input-block form_select">
-      <%= f.select :kind, [["收入", "收入"],["支出", "支出"]], {include_blank: '请选择'}, { class: "form_select validate[required]"} %>
+      <%= f.select :kind, [["收入", "收入"],["支出", "支出"]], {include_blank: '请选择'}, { class: "all_select validate[required]"} %>
     </div>
   </div>
-
 
   <div class="layui-form-item">
     <div class="layui-input-block">
