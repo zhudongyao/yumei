@@ -1,0 +1,44 @@
+<div class="h50">
+<span class="title">账目管理</span>
+<span><%= link_to "添加收入", new_income_admin_finances_path, class: "layui-btn layui-btnn fr mr10" %><span>
+<span><%= link_to "添加支出", new_expense_admin_finances_path, class: "layui-btn layui-btnn fr mr20" %><span>
+</div>
+
+<table class="layui-table">
+  <thead>
+    <tr>
+      <th>时间</th>
+      <th>收支名称</th>
+      <th>收支类型</th>
+      <th>金额</th>
+      <th>收支账户</th>
+      <th>创建人</th>
+      <th>状态</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @finances.each do |finance| %>
+      <tr>
+        <td><%= finance.happened_at %></td>
+        <td><%= finance.finance_type_name %></td>
+        <td><%= finance.finance_type.try(:kind) %></td>
+        <td><span class="red font20"><%= '-' if finance.finance_kind == "支出" %></span><%= number_to_currency finance.total %></td>
+        <td><%= finance.account.try(:name) %></td>
+        <td><%= finance.user.try(:user_name) || finance.user.try(:mobile) %></td>
+        <% status_class = finance.status == 1 ? "" : "red" %>
+        <td class=<%= status_class %>><%= Finance::STATUS[finance.status] %></td>
+        <td>
+          <ul class="layui-nav layui-bg-green cz-select-ul" lay-filter="">
+            <li class="layui-nav-item">
+              <a class="lh30" style="padding-left: 13px" href="javascript:;">操作</a>
+              <dl class="layui-nav-child">
+                <dd><%= link_to "详情", admin_finance_path(finance) %></dd>
+              </dl>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

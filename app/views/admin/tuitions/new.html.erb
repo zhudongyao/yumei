@@ -14,13 +14,13 @@
   <div class="layui-form-item">
     <label class="layui-form-label"><%= require_span %>收款账户</label>
     <div class="layui-input-block form_select">
-      <%= f.select :account_id, Account.usable.all.map{|a| [a.name, a.id]}, {include_blank: '请选择'}, {class: "form_select validate[required]"} %>
+      <%= f.select :account_id, Account.usable.map{|a| [a.name, a.id]}, {include_blank: '请选择'}, {class: "form_select validate[required]"} %>
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label"><%= require_span %>收款员工</label>
     <div class="layui-input-block form_select">
-      <%= f.select :employee_id, Employee.usable.all.map{|a| [a.name, a.id]}, {include_blank: '请选择'}, {class: "form_select validate[required]"} %>
+      <%= f.select :employee_id, Employee.usable.map{|a| [a.name, a.id]}, {include_blank: '请选择'}, {class: "form_select validate[required]"} %>
     </div>
   </div>
   <div class="layui-form-item">

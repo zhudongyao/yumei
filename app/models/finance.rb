@@ -5,7 +5,7 @@ class Finance < ApplicationRecord
   belongs_to :user
 
   scope :usable, -> { where(:status => 1)}
-  STATUS = {1 => "使用中", 0 => "禁用"}
+  STATUS = {1 => "有效", 0 => "无效"}
 
   before_save :update_info
 
@@ -15,4 +15,9 @@ class Finance < ApplicationRecord
     self.index_month = self.happened_at.index_month
     self.index_year = self.happened_at.index_year
   end
+
+  def finance_kind
+    self.finance_type.try(:kind)
+  end
+
 end

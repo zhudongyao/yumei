@@ -39,9 +39,17 @@ Rails.application.routes.draw do
 
     # 学费管理
     resources :tuitions do
+    end
+
+    # 账目管理
+    resources :finances do
       collection do
+        get :new_income
+        get :new_expense
       end
     end
+
+
 
 
   end

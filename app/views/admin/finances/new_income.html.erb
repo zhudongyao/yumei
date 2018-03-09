@@ -1,0 +1,51 @@
+<div>
+  <span class="title">新增收入</span>
+</div>
+
+<%= form_for @finance, url: admin_finances_path, html: {class: 'layui-form valid_engine', method: :post}, :multipart => true  do |f| %>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>收入项</label>
+    <div class="layui-input-block form_select">
+      <%= f.select :finance_type_id, FinanceType.usable.income.map{|a| [a.name, a.id]}, {include_blank: '请选择'}, {class: "form_select validate[required]"} %>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>金额</label>
+    <div class="layui-input-block"><%= f.text_field :total, class: "layui-input w300 validate[required,custom[number]]" %></div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>收入账户</label>
+    <div class="layui-input-block form_select">
+      <%= f.select :account_id, Account.usable.map{|a| [a.name, a.id]}, {include_blank: '请选择'}, {class: "form_select validate[required]"} %>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><%= require_span %>收入日期</label>
+    <div class="layui-input-block"><%= f.text_field :happened_at, class: "layui-input w300 validate[required]", id: "join" %></div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">备注</label>
+    <div class="layui-input-block"><%= f.text_field :remark, class: "layui-input w300" %></div>
+  </div>
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <%= f.submit  "立即提交", class: "layui-btn" %>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+<% end %>
+
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+
+  //执行一个laydate实例
+  laydate.render({
+    elem: '#born' //指定元素
+  });
+  laydate.render({
+    elem: '#join' //指定元素
+  });
+});
+</script>
