@@ -33,7 +33,7 @@ class Admin::StudentsController < AdminController
       @student = Student.new(student_params)
       @student.user_id = current_user.id
       @student.save
-      @student.tuition.create(total: params[:total].to_f, happened_at: params[:happened_at], remark: params[:remark], account_id: params[:account_id].to_i, employee_id: params[:employee_id].to_i, user_id: current_user.id)
+      @student.tuitions.create(total: params[:total].to_f, happened_at: params[:happened_at], remark: params[:remark], account_id: params[:account_id].to_i, employee_id: params[:employee_id].to_i, user_id: current_user.id)
       flash_msg(:success)
       return redirect_to action: :index
     end

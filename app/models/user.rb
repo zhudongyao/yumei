@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :finance_types
   has_many :employees
   has_many :students
-  has_many :tuition
+  has_many :tuitions
   has_many :finances
 
   def email_required?

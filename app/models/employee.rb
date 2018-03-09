@@ -1,6 +1,6 @@
 class Employee < ApplicationRecord
   belongs_to :user
-  has_many :tuition
+  has_many :tuitions
 
   scope :usable, -> { where(:status => 1)}
 

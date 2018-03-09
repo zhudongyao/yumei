@@ -6,14 +6,18 @@ class Tuition < ApplicationRecord
   belongs_to :finance_type
   has_one :finance
 
+  scope :usable, -> { where(:status => 1)}
   STATUS = {1 => "有效", 0 => "无效"}
 
-  before_create :create_finance_type_id
+  before_create :create_info
   after_create :create_finance
   after_save :update_student_status
 
-  def create_finance_type_id
+  def create_info
     self.finance_type_id = FinanceType.find_by(name: "学生学费").try(:id)
+    year = self.happened_at.index_year.to_s
+    season = self.happened_at.month < 6 ? '春' : '秋'
+    self.student_status = year + season + '季学员' if year.present? && season.present?
   end
 
   def create_finance
@@ -21,7 +25,10 @@ class Tuition < ApplicationRecord
   end
 
   def update_student_status
-    # self.student.update(status: self.student_status)
+    if self.student_status.present?
+      latest_status = self.student.tuitions.usable.pluck(:student_status).sort.first
+      self.student.update(status: latest_status) if latest_status.present?
+    end
   end
 
 end
