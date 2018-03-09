@@ -26,8 +26,10 @@ class Tuition < ApplicationRecord
 
   def update_student_status
     if self.student_status.present?
-      latest_status = self.student.tuitions.usable.pluck(:student_status).sort.first
-      self.student.update(status: latest_status) if latest_status.present?
+      student = self.student
+      student.update(cost_count: student.tuitions.usable.count)
+      latest_status = student.tuitions.usable.sort_by{|x| x.happened_at}.reverse.first.student_status if student.tuitions.usable.present?
+      student.update(status: latest_status) if latest_status.present?
     end
   end
 

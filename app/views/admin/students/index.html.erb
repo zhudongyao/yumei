@@ -14,6 +14,7 @@
       <th>家长联系方式</th>
       <th>学生类型</th>
       <th>出生日期</th>
+      <th>缴费期数</th>
       <th>操作</th>
     </tr>
   </thead>
@@ -25,13 +26,15 @@
         <td><%= student.mobile %></td>
         <td><%= student.status %></td>
         <td><%= student.born_at %></td>
+        <td><%= student.cost_count %></td>
         <td>
           <ul class="layui-nav layui-bg-green cz-select-ul" lay-filter="">
             <li class="layui-nav-item">
               <a class="lh30" style="padding-left: 13px" href="javascript:;">操作</a>
               <dl class="layui-nav-child">
                 <dd><%= link_to "修改", edit_admin_student_path(student) %></dd>
-                <dd><%= link_to "查看", admin_student_path(student) %></dd>
+                <dd><%= link_to "报名", new_admin_tuition_path(student_id: student.id) %></dd>
+                <dd><%= link_to "详情", admin_student_path(student) %></dd>
               </dl>
             </li>
           </ul>

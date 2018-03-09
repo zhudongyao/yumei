@@ -37,6 +37,11 @@ Rails.application.routes.draw do
       end
     end
 
+    # 学费管理
+    resources :tuitions do
+      collection do
+      end
+    end
 
 
   end
