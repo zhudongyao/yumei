@@ -1,7 +1,7 @@
 class Admin::StudentsController < AdminController
   before_action :find_student, only: [:edit, :update]
   def index
-    @students = Student.all.order("status desc")
+    @students = Student.all.order("status desc").page(params[:page]).per(1)
   end
 
   def new
